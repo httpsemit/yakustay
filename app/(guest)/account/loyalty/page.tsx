@@ -19,7 +19,8 @@ const TIER_THRESHOLDS = [
 ];
 
 export default async function LoyaltyPage() {
-  const token = cookies().get("session")?.value;
+  const cookieStore = await cookies();
+  const token = cookieStore.get("session")?.value;
   if (!token) redirect("/login");
 
   let uid: string;

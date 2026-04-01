@@ -7,7 +7,8 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 export default async function LoyaltyRedeemPage() {
-  const token = cookies().get("session")?.value;
+  const cookieStore = await cookies();
+  const token = cookieStore.get("session")?.value;
   if (!token) redirect("/login");
 
   let decoded;

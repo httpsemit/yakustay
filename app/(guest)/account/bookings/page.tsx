@@ -12,7 +12,8 @@ export default async function MyBookingsPage({
 }: {
   searchParams: { success?: string; error?: string };
 }) {
-  const token = cookies().get("session")?.value;
+  const cookieStore = await cookies();
+  const token = cookieStore.get("session")?.value;
   if (!token) redirect("/login");
 
   let decoded;

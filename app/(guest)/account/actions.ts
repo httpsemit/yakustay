@@ -6,7 +6,8 @@ import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 
 export async function updateProfileAction(formData: FormData): Promise<void> {
-  const token = cookies().get("session")?.value;
+  const cookieStore = await cookies();
+  const token = cookieStore.get("session")?.value;
   if (!token) throw new Error("Unauthorized");
   
   const decoded = await adminAuth.verifyIdToken(token);

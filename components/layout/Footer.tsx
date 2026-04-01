@@ -153,9 +153,14 @@ export default function Footer() {
           paddingTop: 24,
         }}
       >
-        <p style={{ fontSize: "0.75rem", color: "#50606f" }}>
-          &copy; {new Date().getFullYear()} Chello Yaku Guest House. All rights reserved.
-        </p>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "8px" }}>
+          <p style={{ fontSize: "0.75rem", color: "#50606f", margin: 0 }}>
+            &copy; {new Date().getFullYear()} Chello Yaku Guest House. All rights reserved.
+          </p>
+          <p style={{ fontSize: "0.75rem", color: "#50606f", margin: 0 }}>
+            Developed by <a href="https://shivxtech.online" target="_blank" rel="noopener noreferrer" style={{ color: "#061b0e", textDecoration: "none", fontWeight: 600 }}>SHIVXTECH</a>
+          </p>
+        </div>
       </div>
     </footer>
   );

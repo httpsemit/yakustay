@@ -26,7 +26,7 @@ export default function Header() {
     <header
       style={{
         position: "sticky",
-        top: 0,
+        top: "40px", // Height of maintenance strip
         zIndex: 50,
         background: "rgba(251, 250, 238, 0.92)",
         backdropFilter: "blur(12px)",

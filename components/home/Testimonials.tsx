@@ -41,7 +41,7 @@ function Card({ t }: { t: typeof testimonials[0] }) {
     >
       <StarRating count={t.rating} />
       <p style={{ fontSize: "0.875rem", color: "#1b1c15", fontWeight: 300, lineHeight: 1.6, marginBottom: 16 }}>
-        "{t.text}"
+        &ldquo;{t.text}&rdquo;
       </p>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
         <div

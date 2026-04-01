@@ -25,8 +25,10 @@ export interface User {
   phone:        string;
   role:         "guest" | "admin";
   referralCode: string;
-  createdAt:    any;
-  updatedAt:    any;
+  appliedReferralCode?: string;
+  referralRewarded?: boolean;
+  createdAt:    FirebaseFirestore.Timestamp;
+  updatedAt:    FirebaseFirestore.Timestamp;
 }
 
 
@@ -345,7 +347,7 @@ export async function processReferralReward(guestId: string) {
   // Check if guest used a referral code
   const userSnap = await adminDb.collection("users").doc(guestId).get();
   if (!userSnap.exists) return;
-  const userData = userSnap.data() as any;
+  const userData = userSnap.data() as User;
   const appliedCode = userData.appliedReferralCode;
   
   if (!appliedCode) return; // No referral code used

@@ -126,7 +126,7 @@ export default async function Home() {
           >
             Where the mountains<br />
             <em style={{ fontStyle: "italic", fontWeight: 300, opacity: 0.9 }}>
-              meet Kimin's mist.
+              meet Kimin&apos;s mist.
             </em>
           </h1>
 

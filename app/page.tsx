@@ -175,7 +175,7 @@ export default async function Home() {
       {/* ── BENTO FEATURES ───────────────────────────────────────── */}
       <section style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 32px" }}>
         <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#50606f", marginBottom: 10 }}>
-          The Grand Haven Experience
+          The Chello Yaku Experience
         </p>
         <h2
           style={{

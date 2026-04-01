@@ -14,9 +14,9 @@ export default function AvailabilityWidget() {
   const [checkOutDate, setCheckOutDate] = useState("");
 
   // Hourly state
-  const [hourlyDate]    = useState("");
-  const [checkInTime]   = useState("12:00");
-  const [checkOutTime]  = useState("14:00");
+  const [hourlyDate, setHourlyDate]    = useState("");
+  const [checkInTime, setCheckInTime]   = useState("12:00");
+  const [checkOutTime, setCheckOutTime]  = useState("14:00");
 
   function handleSearch() {
     if (mode === "nightly") {

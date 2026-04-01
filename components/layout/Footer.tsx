@@ -13,7 +13,7 @@ export default function Footer() {
             Book your escape <em style={{ fontStyle: "italic", color: "#d0e9d4" }}>today.</em>
           </h2>
           <p style={{ fontSize: "0.9375rem", fontWeight: 300, color: "rgba(255,255,255,0.7)", marginBottom: 40, lineHeight: 1.6 }}>
-            Experience the harmony of nature and curated luxury at Grand Haven. Reconnect with yourself, starting now.
+            Experience the harmony of nature and warm hospitality at Chello Yaku Guest House. Reconnect with yourself, starting now.
           </p>
           <Link
             href="/rooms"
@@ -67,7 +67,7 @@ export default function Footer() {
           </p>
           <p style={{ fontSize: "0.875rem", color: "#50606f", lineHeight: 1.6 }}>
             <strong>Location:</strong><br />
-            Grand Haven Hotel<br />
+            Chello Yaku Guest House<br />
             NH-415, Banderdewa,<br />
             Assam-Arunachal Border, 791123, India
           </p>
@@ -154,7 +154,7 @@ export default function Footer() {
         }}
       >
         <p style={{ fontSize: "0.75rem", color: "#50606f" }}>
-          &copy; {new Date().getFullYear()} Grand Haven Hotel. All rights reserved.
+          &copy; {new Date().getFullYear()} Chello Yaku Guest House. All rights reserved.
         </p>
       </div>
     </footer>

@@ -22,16 +22,16 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Grand Haven Hotel",
-    default:  "Grand Haven Hotel | Luxury Mountain Retreat in Bhalukpong",
+    template: "%s | Chello Yaku Guest House",
+    default:  "Chello Yaku Guest House | Mountain Retreat in Kimin",
   },
-  description: "Experience luxury and serenity at Grand Haven Hotel, a premier boutique resort located on the Assam-Arunachal border. Book your stay today.",
-  keywords: ["hotel", "Bhalukpong", "Assam", "Arunachal Pradesh", "resort", "luxury stay", "mountain retreat"],
+  description: "Experience warm hospitality at Chello Yaku Guest House, a comfortable retreat located in Kimin, Arunachal Pradesh. Book your stay today.",
+  keywords: ["guest house", "Kimin", "Arunachal Pradesh", "retreat", "comfortable stay", "mountain retreat"],
   openGraph: {
-    title: "Grand Haven Hotel | Luxury Mountain Retreat",
-    description: "Experience luxury and serenity at Grand Haven Hotel, a premier boutique resort located on the Assam-Arunachal border.",
-    url: "https://grandhaven.vercel.app",
-    siteName: "Grand Haven Hotel",
+    title: "Chello Yaku Guest House | Mountain Retreat",
+    description: "Experience warm hospitality at Chello Yaku Guest House, a comfortable retreat located in Kimin, Arunachal Pradesh.",
+    url: "https://yakustay.online",
+    siteName: "Chello Yaku Guest House",
     images: [{ url: "/images/hero-1.jpg", width: 1200, height: 630 }],
     locale: "en_IN",
     type: "website",

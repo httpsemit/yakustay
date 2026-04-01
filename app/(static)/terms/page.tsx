@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions — Grand Haven Hotel",
-  description: "Read the terms and conditions governing your use of the Grand Haven Hotel website and booking services.",
+  title: "Terms & Conditions — Chello Yaku Guest House",
+  description: "Read the terms and conditions governing your use of the Chello Yaku Guest House website and booking services.",
 };
 
 export default function TermsPage() {
@@ -15,7 +15,7 @@ export default function TermsPage() {
     >
       <h2>1. Acceptance of Terms</h2>
       <p>
-        By accessing and using the Grand Haven Hotel website (<strong>grandhaven.in</strong>) or making a reservation through our platform, you agree to be bound by these Terms and Conditions, our Privacy Policy, and our Cancellation Policy. If you do not agree with any part of these terms, please do not use our services.
+        By accessing and using the Chello Yaku Guest House website (<strong>yakustay.online</strong>) or making a reservation through our platform, you agree to be bound by these Terms and Conditions, our Privacy Policy, and our Cancellation Policy. If you do not agree with any part of these terms, please do not use our services.
       </p>
 
       <h2>2. Reservations & Payment</h2>
@@ -28,7 +28,7 @@ export default function TermsPage() {
 
       <h2>3. Guest Responsibilities</h2>
       <p>
-        Guests are responsible for their behaviour and the behaviour of their accompanying parties during their stay. Grand Haven Hotel reserves the right to terminate a guest&rsquo;s stay without refund in the event of behaviour that is harmful, disruptive, or in violation of local laws or hotel policies.
+        Guests are responsible for their behaviour and the behaviour of their accompanying parties during their stay. Chello Yaku Guest House reserves the right to terminate a guest&rsquo;s stay without refund in the event of behaviour that is harmful, disruptive, or in violation of local laws or hotel policies.
       </p>
 
       <h2>4. Check-in & Check-out</h2>
@@ -38,12 +38,12 @@ export default function TermsPage() {
 
       <h2>5. Intellectual Property</h2>
       <p>
-        All content on this website, including but not limited to text, photography, logos, and design, is the property of Grand Haven Hotel and is protected by applicable copyright laws. You may not reproduce, distribute, or create derivative works without our express prior written consent.
+        All content on this website, including but not limited to text, photography, logos, and design, is the property of Chello Yaku Guest House and is protected by applicable copyright laws. You may not reproduce, distribute, or create derivative works without our express prior written consent.
       </p>
 
       <h2>6. Limitation of Liability</h2>
       <p>
-        To the fullest extent permitted by law, Grand Haven Hotel shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our website or services. Our total liability shall not exceed the total amount paid for the relevant booking.
+        To the fullest extent permitted by law, Chello Yaku Guest House shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our website or services. Our total liability shall not exceed the total amount paid for the relevant booking.
       </p>
 
       <h2>7. Governing Law</h2>

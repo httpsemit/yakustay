@@ -1,5 +1,6 @@
 import { adminDb } from "@/lib/firebase-admin";
 import { areIntervalsOverlapping, parseISO } from "date-fns";
+import { Timestamp } from "firebase-admin/firestore";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 
@@ -27,8 +28,8 @@ export interface User {
   referralCode: string;
   appliedReferralCode?: string;
   referralRewarded?: boolean;
-  createdAt:    FirebaseFirestore.Timestamp;
-  updatedAt:    FirebaseFirestore.Timestamp;
+  createdAt:    Timestamp;
+  updatedAt:    Timestamp;
 }
 
 

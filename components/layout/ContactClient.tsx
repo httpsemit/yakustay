@@ -11,7 +11,7 @@ const INFO = [
   {
     icon: "call",
     label: "Phone",
-    lines: ["+91 94350 00000", "+91 80110 00000"],
+    lines: ["+91 XXXXX XXXXX", "+91 XXXXX XXXXX"],
   },
   {
     icon: "mail",

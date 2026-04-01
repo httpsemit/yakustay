@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Rooms & Suites",
-  description: "Browse our luxury rooms and suites at Grand Haven Hotel. From Executive to Presidential, find your perfect mountain retreat.",
+  description: "Browse our comfortable rooms and suites at Chello Yaku Guest House. Find your perfect mountain retreat in Kimin.",
 };
 
 export const dynamic = "force-dynamic";

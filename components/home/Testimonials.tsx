@@ -6,9 +6,9 @@ const testimonials = [
   { name: "Arjun K.",     location: "Delhi",     rating: 5, text: "Booked online and the process was seamless. The room was cozy and the views were breathtaking." },
   { name: "Sneha R.",     location: "Pune",      rating: 5, text: "A true hidden gem. Peaceful, clean, and the staff were incredibly warm and welcoming." },
   { name: "Vikram T.",    location: "Chennai",   rating: 5, text: "The quiet zone policy is brilliant. It felt like a digital detox and we loved every minute." },
-  { name: "Anjali P.",    location: "Hyderabad", rating: 5, text: "Such an affordable luxury. ₹999 starting price and the quality was outstanding." },
+  { name: "Anjali P.",    location: "Hyderabad", rating: 5, text: "Such an affordable luxury. Great value and the quality was outstanding." },
   { name: "Rohan D.",     location: "Kolkata",   rating: 5, text: "Stunning mountain views, comfortable beds, and zero noise. Perfect for a weekend getaway." },
-  { name: "Meera V.",     location: "Jaipur",    rating: 5, text: "I've stayed at many hotels but Grand Haven has a charm that's hard to put into words." },
+  { name: "Meera V.",    location: "Jaipur",    rating: 5, text: "I've stayed at many hotels but Chello Yaku Guest House has a charm that's hard to put into words." },
 ];
 
 // Split into two rows for alternating directions

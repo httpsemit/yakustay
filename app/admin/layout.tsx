@@ -7,7 +7,7 @@ import AdminSidebar from "./AdminSidebar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard | Grand Haven Hotel",
+  title: "Admin Dashboard | Chello Yaku Guest House",
   description: "Secure internal administration portal.",
   robots: { index: false, follow: false },
 };

@@ -35,7 +35,7 @@ export default async function AdminGuestsPage() {
           </thead>
           <tbody>
             {users.map((u) => {
-              const dateVal = (u.createdAt as any) instanceof Timestamp ? u.createdAt.toDate() : ((u.createdAt as any) instanceof Date ? u.createdAt : (typeof (u.createdAt as any) === 'string' ? new Date(u.createdAt) : new Date(u.createdAt)));
+              const dateVal = (u.createdAt as any) instanceof Timestamp ? u.createdAt.toDate() : ((u.createdAt as any) instanceof Date ? u.createdAt : (typeof (u.createdAt as any) === 'string' ? new Date(u.createdAt) : new Date()));
               const date = dateVal instanceof Date ? dateVal : new Date();
 
               return (

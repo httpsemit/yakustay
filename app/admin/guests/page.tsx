@@ -36,7 +36,7 @@ export default async function AdminGuestsPage() {
           <tbody>
             {users.map((u) => {
               const dateVal = (u.createdAt as any) instanceof Timestamp ? u.createdAt.toDate() : ((u.createdAt as any) instanceof Date ? u.createdAt : (typeof (u.createdAt as any) === 'string' ? new Date(u.createdAt) : new Date(u.createdAt)));
-              const formattedDate = dateVal instanceof Date ? format(dateVal, "MMM d, yyyy") : format(new Date(), "MMM d, yyyy");
+              const date = dateVal instanceof Date ? dateVal : new Date();
 
               return (
                 <tr key={u.id} style={{ borderBottom: "1px solid #efeee3" }}>
@@ -60,7 +60,7 @@ export default async function AdminGuestsPage() {
                     )}
                   </td>
                   <td style={{ padding: "16px 24px", fontSize: "0.9375rem", color: "#50606f" }}>
-                    {formattedDate}
+                    {date instanceof Date ? format(date, "MMM d, yyyy") : format(new Date(), "MMM d, yyyy")}
                   </td>
                   <td style={{ padding: "16px 24px" }}>
                      <button style={{ background: "none", border: "none", color: "#061b0e", cursor: "pointer", textDecoration: "underline", fontSize: "0.875rem" }}>

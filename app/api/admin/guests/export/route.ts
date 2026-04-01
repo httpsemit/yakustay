@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { adminAuth } from "@/lib/firebase-admin";
 import { getAllUsers, getUserById } from "@/lib/firestore";
+import { parseDate } from "@/lib/date-utils";
 
 export const dynamic = "force-dynamic";
 
@@ -22,7 +23,7 @@ export async function GET(req: NextRequest) {
     // Build CSV
     const headers = ["ID", "First Name", "Last Name", "Email", "Phone", "Referral Code", "Joined At"];
     const rows = guestUsers.map((u) => {
-      const dateVal = u.createdAt?.toDate ? u.createdAt.toDate().toISOString() : u.createdAt ? new Date(u.createdAt).toISOString() : "";
+      const dateVal = parseDate(u.createdAt).toISOString();
       return [
         u.id,
         `"${u.firstName}"`,

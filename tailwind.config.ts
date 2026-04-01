@@ -1,0 +1,63 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        "primary":                    "#061b0e",
+        "primary-container":          "#1b3022",
+        "primary-fixed":              "#d0e9d4",
+        "primary-fixed-dim":          "#b4cdb8",
+        "on-primary":                 "#ffffff",
+        "on-primary-container":       "#819986",
+        "on-primary-fixed":           "#0b2013",
+        "secondary":                  "#50606f",
+        "secondary-fixed":            "#d4e4f6",
+        "secondary-fixed-dim":        "#b8c8da",
+        "on-secondary":               "#ffffff",
+        "on-secondary-fixed":         "#0d1d2a",
+        "tertiary":                   "#281100",
+        "tertiary-container":         "#42240b",
+        "tertiary-fixed":             "#ffdcc4",
+        "tertiary-fixed-dim":         "#efbc98",
+        "on-tertiary":                "#ffffff",
+        "on-tertiary-fixed":          "#2f1501",
+        "surface":                    "#fbfaee",
+        "surface-dim":                "#dbdbcf",
+        "surface-bright":             "#fbfaee",
+        "surface-container-lowest":   "#ffffff",
+        "surface-container-low":      "#f5f4e8",
+        "surface-container":          "#efeee3",
+        "surface-container-high":     "#e9e9dd",
+        "surface-container-highest":  "#e4e3d7",
+        "on-surface":                 "#1b1c15",
+        "on-surface-variant":         "#434843",
+        "outline-variant":            "#c3c8c1",
+        "outline":                    "#737973",
+        "background":                 "#fbfaee",
+        "on-background":              "#1b1c15",
+        "error":                      "#ba1a1a",
+        "error-container":            "#ffdad6",
+      },
+      fontFamily: {
+        "headline": ["Noto Serif", "serif"],
+        "body":     ["Inter", "sans-serif"],
+        "label":    ["Inter", "sans-serif"],
+      },
+      borderRadius: {
+        "DEFAULT": "0.25rem",
+        "md":      "0.5rem",
+        "lg":      "0.75rem",
+        "xl":      "1rem",
+        "full":    "9999px",
+      },
+    },
+  },
+  plugins: [],
+};
+export default config;

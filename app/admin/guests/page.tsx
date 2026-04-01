@@ -60,7 +60,7 @@ export default async function AdminGuestsPage() {
                     )}
                   </td>
                   <td style={{ padding: "16px 24px", fontSize: "0.9375rem", color: "#50606f" }}>
-                    {date instanceof Date ? format(date, "MMM d, yyyy") : format(new Date(), "MMM d, yyyy")}
+                    {dateVal instanceof Date ? format(dateVal, "MMM d, yyyy") : format(new Date(), "MMM d, yyyy")}
                   </td>
                   <td style={{ padding: "16px 24px" }}>
                      <button style={{ background: "none", border: "none", color: "#061b0e", cursor: "pointer", textDecoration: "underline", fontSize: "0.875rem" }}>

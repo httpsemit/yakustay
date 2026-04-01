@@ -1,7 +1,7 @@
 import Stripe from "stripe";
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "dummy_key", {
-  apiVersion: "2024-04-10",
+  apiVersion: "2026-03-25.dahlia",
 });
 
 export async function createCheckoutSession(bookingId: string, amount: number) {

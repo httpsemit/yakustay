@@ -1,7 +1,7 @@
 import { getAllUsers } from "@/lib/firestore";
 import Link from "next/link";
 import { format } from "date-fns";
-import { Timestamp } from "firebase-admin/firestore";
+import { parseDate } from "@/lib/date-utils";
 
 export const dynamic = "force-dynamic";
 
@@ -35,8 +35,7 @@ export default async function AdminGuestsPage() {
           </thead>
           <tbody>
             {users.map((u) => {
-              const dateVal = (u.createdAt as any) instanceof Timestamp ? u.createdAt.toDate() : ((u.createdAt as any) instanceof Date ? u.createdAt : (typeof (u.createdAt as any) === 'string' ? new Date(u.createdAt) : new Date()));
-              const date = dateVal instanceof Date ? dateVal : new Date();
+              const date = parseDate(u.createdAt);
 
               return (
                 <tr key={u.id} style={{ borderBottom: "1px solid #efeee3" }}>
@@ -60,7 +59,7 @@ export default async function AdminGuestsPage() {
                     )}
                   </td>
                   <td style={{ padding: "16px 24px", fontSize: "0.9375rem", color: "#50606f" }}>
-                    {dateVal instanceof Date ? format(dateVal, "MMM d, yyyy") : format(new Date(), "MMM d, yyyy")}
+                    {date instanceof Date ? format(date, "MMM d, yyyy") : format(new Date(), "MMM d, yyyy")}
                   </td>
                   <td style={{ padding: "16px 24px" }}>
                      <button style={{ background: "none", border: "none", color: "#061b0e", cursor: "pointer", textDecoration: "underline", fontSize: "0.875rem" }}>

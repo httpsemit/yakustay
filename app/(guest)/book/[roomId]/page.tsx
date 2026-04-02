@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import BookingSummary from "@/components/booking/BookingSummary";
 import { differenceInCalendarDays, parseISO } from "date-fns";
-import { Suspense } from "react";
+import { Suspense, use } from "react";
 
 interface RoomInfo { name: string; pricePerNight: number }
 
@@ -18,10 +18,11 @@ const field: React.CSSProperties = {
 const lbl: React.CSSProperties = { fontSize: 9, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "#50606f", marginBottom: 4, display: "block" };
 const inp: React.CSSProperties = { width: "100%", fontSize: 14, color: "#1b1c15", background: "none", border: "none", outline: "none" };
 
-export default function BookingFormPage({ params }: { params: { roomId: string } }) {
+export default function BookingFormPage({ params }: { params: Promise<{ roomId: string }> }) {
+  const { roomId } = use(params);
   return (
     <Suspense fallback={null}>
-      <BookingFormInner roomId={params.roomId} />
+      <BookingFormInner roomId={roomId} />
     </Suspense>
   );
 }

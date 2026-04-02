@@ -5,21 +5,23 @@ import RoomBookingPanel from "./RoomBookingPanel";
 
 export const dynamic = "force-dynamic";
 
-interface Props { params: { id: string } }
+interface Props { params: Promise<{ id: string }> }
 
 export default async function RoomDetailPage({ params }: Props) {
   let room = null;
   let bookedDates: string[] = [];
 
+  const { id } = await params;
+
   try {
-    room        = await getRoomById(params.id);
-    bookedDates = room ? await getBookedDates(params.id) : [];
+    room        = await getRoomById(id);
+    bookedDates = room ? await getBookedDates(id) : [];
   } catch {
     // Firestore not configured
   }
 
   if (!room) {
-    room = MOCK_ROOMS.find((r) => r.id === params.id) || null;
+    room = MOCK_ROOMS.find((r) => r.id === id) || null;
   }
 
   if (!room) return notFound();
@@ -38,9 +40,12 @@ export default async function RoomDetailPage({ params }: Props) {
         }
         .room-hero {
           position: relative;
-          height: 55vh;
-          min-height: 360px;
+          height: 40vh;
+          min-height: 280px;
+          max-height: 450px;
           overflow: hidden;
+          border-radius: 0.75rem;
+          box-shadow: 0 4px 20px rgba(27, 48, 34, 0.1);
         }
         .room-booking-panel {
           position: sticky;
@@ -53,8 +58,10 @@ export default async function RoomDetailPage({ params }: Props) {
             padding: 28px 18px 64px;
           }
           .room-hero {
-            height: 42vw;
-            min-height: 220px;
+            height: 30vw;
+            min-height: 180px;
+            max-height: 300px;
+            border-radius: 0.75rem;
           }
           .room-booking-panel {
             position: static;

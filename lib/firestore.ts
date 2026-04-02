@@ -156,11 +156,11 @@ export async function getRooms(): Promise<Room[]> {
   const snap = await adminDb
     .collection("rooms")
     .where("isAvailable", "==", true)
-    .orderBy("pricePerNight", "asc")
     .get();
 
   if (snap.empty) return MOCK_ROOMS;
-  return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Room));
+  const rooms = snap.docs.map((d) => ({ id: d.id, ...d.data() } as Room));
+  return rooms.sort((a, b) => a.pricePerNight - b.pricePerNight);
 }
 
 export async function getAllRooms(): Promise<Room[]> {
@@ -177,6 +177,29 @@ export async function getRoomById(id: string): Promise<Room | null> {
   const doc = await adminDb.collection("rooms").doc(id).get();
   if (!doc.exists) return null;
   return { id: doc.id, ...doc.data() } as Room;
+}
+
+export async function createRoom(data: Omit<Room, "id" | "createdAt">): Promise<string> {
+  const roomRef = adminDb.collection("rooms").doc();
+  await roomRef.set({
+    ...data,
+    createdAt: new Date().toISOString(),
+  });
+  return roomRef.id;
+}
+
+export async function updateRoom(id: string, data: Partial<Room>): Promise<void> {
+  if (!id) {
+    throw new Error("Room ID is required for update");
+  }
+  await adminDb.collection("rooms").doc(id).set(data, { merge: true });
+}
+
+export async function deleteRoom(id: string): Promise<void> {
+  if (!id) {
+    throw new Error("Room ID is required for deletion");
+  }
+  await adminDb.collection("rooms").doc(id).delete();
 }
 
 // ── User queries ───────────────────────────────────────────────────────────

@@ -1,9 +1,15 @@
-import { getAllRooms } from "@/lib/firestore";
+import Link from "next/link";
+import { getAllRooms, type Room } from "@/lib/firestore";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminRoomsPage() {
-  const rooms = await getAllRooms();
+  let rooms: Room[] = [];
+  try {
+    rooms = await getAllRooms();
+  } catch (err) {
+    console.error("Firestore not configured or errored: ", err);
+  }
 
   return (
     <div>
@@ -14,9 +20,9 @@ export default async function AdminRoomsPage() {
           </h1>
           <p style={{ color: "#50606f" }}>Manage hotel rooms and availability.</p>
         </div>
-        <button style={{ padding: "12px 24px", background: "#061b0e", color: "#fff", borderRadius: 6, border: "none", fontSize: "0.875rem", fontWeight: 500, cursor: "not-allowed", opacity: 0.5 }}>
-          + Add Room (Stubbed)
-        </button>
+        <Link href="/admin/rooms/new" style={{ textDecoration: "none", padding: "12px 24px", background: "#061b0e", color: "#fff", borderRadius: 6, fontSize: "0.875rem", fontWeight: 500 }}>
+          + Add Room
+        </Link>
       </div>
 
       <div style={{ background: "#fff", borderRadius: 12, overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
@@ -42,9 +48,9 @@ export default async function AdminRoomsPage() {
                   </span>
                 </td>
                 <td style={{ padding: "16px 24px" }}>
-                  <button style={{ background: "none", border: "none", color: "#061b0e", cursor: "pointer", textDecoration: "underline", fontSize: "0.875rem" }}>
+                  <Link href={`/admin/rooms/${room.id}`} style={{ color: "#061b0e", textDecoration: "underline", fontSize: "0.875rem" }}>
                     Edit
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}

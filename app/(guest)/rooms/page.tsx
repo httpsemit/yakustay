@@ -24,6 +24,25 @@ export default async function RoomsPage() {
 
   return (
     <div style={{ minHeight: "100vh", background: "#fbfaee", padding: "64px 32px" }}>
+      <style>{`
+        .rooms-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+          gap: 24px;
+        }
+        @media (min-width: 768px) {
+          .rooms-grid {
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          }
+        }
+        @media (min-width: 1024px) {
+          .rooms-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+        }
+      `}</style>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <p
           style={{
@@ -52,13 +71,7 @@ export default async function RoomsPage() {
             </p>
           </div>
         ) : (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: 24,
-            }}
-          >
+          <div className="rooms-grid">
             {rooms.map((room) => (
               <Link
                 key={room.id}
@@ -72,7 +85,7 @@ export default async function RoomsPage() {
                   }}
                 >
                   {/* Image */}
-                  <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
+                  <div style={{ position: "relative", height: 180, overflow: "hidden" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={room.primaryImage} alt={room.name}

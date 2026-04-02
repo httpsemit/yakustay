@@ -33,6 +33,10 @@ export async function POST(req: NextRequest) {
   if (!booking) {
     return NextResponse.json({ error: "Booking not found" }, { status: 404 });
   }
+
+  if (!booking.roomId) {
+    return NextResponse.json({ error: "Room ID not found in booking" }, { status: 400 });
+  }
   if (booking.guestId !== uid) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 403 });
   }

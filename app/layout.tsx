@@ -22,6 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://yakustay.online'),
   title: {
     template: "%s | Chello Yaku Guest House",
     default:  "Chello Yaku Guest House | Mountain Retreat in Kimin",
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Chello Yaku Guest House | Mountain Retreat",
     description: "Experience warm hospitality at Chello Yaku Guest House, a comfortable retreat located in Kimin, Arunachal Pradesh.",
-    url: "https://yakustay.online",
+    url: "/",
     siteName: "Chello Yaku Guest House",
     images: [{ url: "/images/hero-1.jpg", width: 1200, height: 630 }],
     locale: "en_IN",

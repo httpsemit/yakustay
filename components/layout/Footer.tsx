@@ -50,18 +50,25 @@ export default function Footer() {
         }}
       >
         <div>
-          <p
+          <Link
+            href="/"
             style={{
-              fontFamily: "'Noto Serif', serif",
-              fontStyle: "italic",
-              fontWeight: 300,
-              fontSize: "1.2rem",
-              color: "#061b0e",
+              textDecoration: "none",
+              display: "inline-block",
               marginBottom: 8,
             }}
           >
-            Grand Haven
-          </p>
+            <img
+              src="/images/navlogo.png"
+              alt="Chello Yaku Guest House Logo"
+              style={{
+                height: "48px",
+                width: "auto",
+                maxWidth: "200px",
+                objectFit: "contain",
+              }}
+            />
+          </Link>
           <p style={{ fontSize: "0.875rem", color: "#50606f", lineHeight: 1.6, marginBottom: 16 }}>
             A boutique retreat on the<br />Assam-Arunachal border.
           </p>

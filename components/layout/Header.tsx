@@ -50,16 +50,21 @@ export default function Header() {
           href="/"
           onClick={() => setMenuOpen(false)}
           style={{
-            fontFamily: "'Noto Serif', serif",
-            fontStyle: "italic",
-            fontWeight: 300,
-            fontSize: "1.2rem",
-            color: "#061b0e",
-            letterSpacing: "-0.01em",
             textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          Chello Yaku Guest House
+          <img
+            src="/images/navlogo.png"
+            alt="Chello Yaku Guest House Logo"
+            style={{
+              height: "40px",
+              width: "auto",
+              maxWidth: "200px",
+              objectFit: "contain",
+            }}
+          />
         </Link>
 
         {/* Desktop nav — hidden below 640px via className */}

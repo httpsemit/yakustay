@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, FormEvent, useEffect, useCallback } from "react";
+import { useState, FormEvent, useEffect, useCallback, lazy, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
-import BookingSummary from "@/components/booking/BookingSummary";
 import { differenceInCalendarDays, parseISO } from "date-fns";
-import { Suspense, use } from "react";
+import { use } from "react";
+
+// Lazy load BookingSummary to reduce initial bundle size
+const BookingSummary = lazy(() => import("@/components/booking/BookingSummary"));
 
 interface RoomInfo { name: string; pricePerNight: number }
 
@@ -135,13 +137,33 @@ function BookingFormInner({ roomId }: { roomId: string }) {
     loadProfile();
   }, [user, profileLoaded, validatePhone]);
 
-  // Load room data
+  // Load room data - optimized with useCallback
   useEffect(() => {
     if (!roomId) return;
-    fetch(`/api/rooms/${roomId}`)
-      .then((r) => r.json())
-      .then((data) => { if (data.name) setRoom(data); })
-      .catch(() => {});
+    
+    const controller = new AbortController();
+    
+    const fetchRoom = async () => {
+      try {
+        const response = await fetch(`/api/rooms/${roomId}`, {
+          signal: controller.signal,
+        });
+        const data = await response.json();
+        if (data.name && !controller.signal.aborted) {
+          setRoom(data);
+        }
+      } catch (error) {
+        if (!controller.signal.aborted) {
+          console.error('Failed to fetch room:', error);
+        }
+      }
+    };
+    
+    fetchRoom();
+    
+    return () => {
+      controller.abort();
+    };
   }, [roomId]);
 
   // Load loyalty points
@@ -542,10 +564,16 @@ function BookingFormInner({ roomId }: { roomId: string }) {
           <div className="booking-summary-panel">
             {room && nights > 0 ? (
               <>
-                <BookingSummary
-                  roomName={room.name} checkIn={checkIn} checkOut={checkOut}
-                  nights={nights} pricePerNight={room.pricePerNight}
-                />
+                <Suspense fallback={
+                  <div style={{ background: "#f5f4e8", borderRadius: "0.75rem", padding: 24, color: "#50606f", fontSize: "0.875rem" }}>
+                    Loading booking details…
+                  </div>
+                }>
+                  <BookingSummary
+                    roomName={room.name} checkIn={checkIn} checkOut={checkOut}
+                    nights={nights} pricePerNight={room.pricePerNight}
+                  />
+                </Suspense>
                 
                 {/* Enhanced Total Price Display */}
                 <div style={{ 

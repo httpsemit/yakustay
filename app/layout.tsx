@@ -15,6 +15,7 @@ const notoSerif = Noto_Serif({
   style:     ["normal", "italic"],
   variable:  "--font-serif",
   display:   "swap",
+  preload:   true,
 });
 
 const inter = Inter({
@@ -22,6 +23,7 @@ const inter = Inter({
   weight:   ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
   display:  "swap",
+  preload:   true,
 });
 
 export const metadata: Metadata = {
@@ -41,6 +43,15 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
+  // Performance optimizations
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+  },
 };
 
 export default function RootLayout({
@@ -49,6 +60,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${notoSerif.variable} ${inter.variable}`}>
       <head>
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* DNS prefetch for third-party domains */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://vercel.live" />
+        
         {/* Material Symbols — icon font, not a page font, safe in <head> */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link

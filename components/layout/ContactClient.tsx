@@ -6,7 +6,7 @@ const INFO = [
   {
     icon: "location_on",
     label: "Address",
-    lines: ["M/S Chello Yaku Guest House", "Near Petrol Pump, Kimin", "Arunachal Pradesh 791111, India"],
+    lines: ["M/S Chello Yaku Guest House", "SANTI NAGAR, NEAR-(PETROL PUMP)", "PAPUMPARE (AP) 791121"],
   },
   {
     icon: "call",

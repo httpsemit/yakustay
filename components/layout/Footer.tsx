@@ -75,8 +75,8 @@ export default function Footer() {
           <p style={{ fontSize: "0.875rem", color: "#50606f", lineHeight: 1.6 }}>
             <strong>Location:</strong><br />
             Chello Yaku Guest House<br />
-            NH-415, Banderdewa,<br />
-            Assam-Arunachal Border, 791123, India
+            SANTI NAGAR, NEAR-(PETROL PUMP)<br />
+            PAPUMPARE (AP) 791121
           </p>
         </div>
 

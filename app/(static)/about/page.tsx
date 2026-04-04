@@ -130,7 +130,7 @@ export default function AboutPage() {
               A labour of <em style={{ fontStyle: "italic" }}>love in the foothills.</em>
             </h2>
             <p style={{ fontSize: "1rem", color: "#434843", lineHeight: 1.8, marginBottom: 16, fontWeight: 300 }}>
-              Chello Yaku Guest House was born from a simple vision: to provide a warm, welcoming home for travelers visiting the beautiful Kimin region. Located near the petrol pump in the heart of Kimin, our guest house offers comfortable accommodations with genuine hospitality.
+              Chello Yaku Guest House was born from a simple vision: to provide a warm, welcoming home for travelers visiting the beautiful Kimin region. Located in SANTI NAGAR, NEAR-(PETROL PUMP) PAPUMPARE, our guest house offers comfortable accommodations with genuine hospitality.
             </p>
             <p style={{ fontSize: "1rem", color: "#434843", lineHeight: 1.8, fontWeight: 300 }}>
               We started with comfortable rooms designed to make every guest feel at home. Today, that vision continues to guide everything we do. Every aspect of Chello Yaku is managed with personal care, ensuring visitors experience the warmth and beauty of our region.

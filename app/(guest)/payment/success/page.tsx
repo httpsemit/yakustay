@@ -72,6 +72,18 @@ function SuccessInner() {
         >
           View My Bookings
         </Link>
+        {bookingId && (
+          <Link
+            href={`/invoice/${bookingId}`}
+            style={{
+              background: "#25d366", color: "#ffffff", textDecoration: "none",
+              borderRadius: "0.75rem", padding: "12px 24px", fontSize: 11,
+              fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase",
+            }}
+          >
+            📄 View Invoice
+          </Link>
+        )}
         <Link
           href="/"
           style={{

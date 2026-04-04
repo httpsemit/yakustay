@@ -6,12 +6,9 @@ interface Props {
   pricePerNight: number;
 }
 
-const TAX_RATE = 0.12; // 12% GST
-
 export default function BookingSummary({ roomName, checkIn, checkOut, nights, pricePerNight }: Props) {
   const subtotal = pricePerNight * nights;
-  const tax      = Math.round(subtotal * TAX_RATE);
-  const total    = subtotal + tax;
+  const total    = subtotal;
 
   const fmt = (d: string) =>
     d ? new Date(d).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" }) : "—";
@@ -61,7 +58,6 @@ export default function BookingSummary({ roomName, checkIn, checkOut, nights, pr
 
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         <Row label={`₹${pricePerNight.toLocaleString("en-IN")} × ${nights} nights`} value={`₹${subtotal.toLocaleString("en-IN")}`} />
-        <Row label="GST (12%)" value={`₹${tax.toLocaleString("en-IN")}`} muted />
       </div>
 
       <div style={{ height: 1, background: "rgba(195,200,193,0.3)" }} />

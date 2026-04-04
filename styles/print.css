@@ -1,0 +1,42 @@
+/* Print styles for invoice */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    padding: 0 !important;
+  }
+  
+  .invoice-container {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+  
+  /* Ensure all text is black */
+  * {
+    color: black !important;
+  }
+  
+  /* Remove backgrounds */
+  div, td, th {
+    background: white !important;
+  }
+  
+  /* Keep borders */
+  table {
+    border-collapse: collapse !important;
+  }
+  
+  td, th {
+    border: 1px solid black !important;
+  }
+  
+  /* Page break */
+  .invoice-container {
+    page-break-inside: avoid;
+  }
+}

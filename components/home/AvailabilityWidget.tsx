@@ -168,7 +168,7 @@ export default function AvailabilityWidget() {
               Hourly bookings are currently handled exclusively via WhatsApp.
             </p>
             <a
-              href="https://wa.me/919435000000?text=Hi! I would like to inquire about hourly room availability."
+              href="https://wa.me/919678267281?text=Hi! I would like to inquire about hourly room availability."
               target="_blank"
               rel="noreferrer"
               style={{

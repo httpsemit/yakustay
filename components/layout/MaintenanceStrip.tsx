@@ -16,7 +16,7 @@ export default function MaintenanceStrip() {
         zIndex: 60,
       }}
     >
-      🚧 <strong>Site Under Maintenance:</strong> We're improving your experience. For bookings, contact us on WhatsApp: <a href="https://wa.me/91943500000" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 600 }}>+91 94350 00000</a>
+      🚧 <strong>Site Under Maintenance:</strong> We're improving your experience. For bookings, contact us on WhatsApp: <a href="https://wa.me/919678267281" target="_blank" rel="noopener noreferrer" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 600 }}>+91 96782 67281</a>
     </div>
   );
 }

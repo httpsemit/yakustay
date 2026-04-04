@@ -11,7 +11,7 @@ const INFO = [
   {
     icon: "call",
     label: "Phone",
-    lines: ["+91 XXXXX XXXXX", "+91 XXXXX XXXXX"],
+    lines: ["+91 9678267281", "+91 6909419604"],
   },
   {
     icon: "mail",
@@ -32,9 +32,29 @@ export default function ContactClient() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulate send (replace with real API call later)
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus("sent");
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+      
+      setStatus("sent");
+      // Reset form after successful submission
+      setForm({ name: "", phone: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Contact form error:", error);
+      setStatus("error");
+    }
   };
 
   return (
@@ -164,7 +184,7 @@ export default function ContactClient() {
               }}
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.7!2d93.970053!3d27.303804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3744f3f3f3f3f3f3%3A0x0!2sKimin%2C+Arunachal+Pradesh!5e0!3m2!1sen!2sin!4v1680000000000"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.7!2d93.970051!3d27.303790!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s27.303790%2C+93.970051!5e0!3m2!1sen!2sin!4v1680000000000&z=16"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -219,6 +239,39 @@ export default function ContactClient() {
                 <p style={{ color: "#50606f", fontSize: "0.9rem" }}>
                   Our team will get back to you within 24 hours.
                 </p>
+              </div>
+            ) : status === "error" ? (
+              <div
+                style={{
+                  background: "#f8d7da",
+                  borderRadius: "1rem",
+                  padding: 40,
+                  textAlign: "center",
+                }}
+              >
+                <span className="material-symbols-outlined" style={{ fontSize: 48, color: "#721c24", display: "block", marginBottom: 16 }}>
+                  error
+                </span>
+                <p style={{ fontFamily: "'Noto Serif', serif", fontSize: "1.25rem", color: "#721c24", marginBottom: 8 }}>
+                  Something went wrong
+                </p>
+                <p style={{ color: "#721c24", fontSize: "0.9rem", marginBottom: 16 }}>
+                  Failed to send your message. Please try again.
+                </p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  style={{
+                    background: "#721c24",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "0.5rem",
+                    padding: "12px 24px",
+                    fontSize: "0.875rem",
+                    cursor: "pointer",
+                  }}
+                >
+                  Try Again
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>

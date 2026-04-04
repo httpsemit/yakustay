@@ -9,38 +9,38 @@ export const metadata: Metadata = {
 const TEAM = [
   {
     name: "Upendra Kumar Kushwaha",
-    role: "Owner",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
-    bio: "Born and raised in the region, Upendra envisioned Chello Yaku as a place where travelers could experience genuine warmth and comfort amidst the beauty of Kimin.",
+    role: "Founder & Owner",
+    img: "/images/navlogo.png",
+    bio: "A native of the beautiful Papumpare region, Upendra founded Chello Yaku with a dream to showcase the warm hospitality and natural beauty of Arunachal Pradesh. His vision was to create a peaceful retreat where travelers could experience authentic local culture while enjoying modern comfort.",
   },
   {
     name: "Rahul Tosa (Maina)",
-    role: "Manager",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
-    bio: "Maina ensures every guest feels at home, managing daily operations with personal attention to detail and a commitment to exceptional service.",
+    role: "Operations Manager",
+    img: "/images/footerlogo.png",
+    bio: "Maina brings her exceptional organizational skills and warm personality to ensure every guest feels like family. She oversees daily operations with meticulous attention to detail and a genuine commitment to creating memorable stays.",
   },
 ];
 
 const VALUES = [
   {
     icon: "landscape",
-    title: "Nature First",
-    desc: "Every design decision is made with the landscape in mind. We exist in nature, not on top of it.",
+    title: "Himalayan Heritage",
+    desc: "Nestled in the foothills of the Himalayas, Chello Yaku celebrates the natural beauty of Arunachal Pradesh. Every room offers stunning views of the mountains and valleys that make this region extraordinary.",
   },
   {
-    icon: "volunteer_activism",
-    title: "Community Rooted",
-    desc: "Over 80% of our team are local hires. We invest directly in the communities that make this place special.",
+    icon: "home",
+    title: "Local Roots",
+    desc: "Over 90% of our team members are from the local community. We believe in providing opportunities to our neighbors and sharing the authentic culture of Papumpare with every guest.",
   },
   {
     icon: "spa",
-    title: "Quiet Luxury",
-    desc: "No crowds, no noise. We limit our capacity deliberately so every guest feels truly seen.",
+    title: "Tranquil Comfort",
+    desc: "Escape the noise and crowds. With only limited rooms available, we ensure each guest receives personalized attention and the peaceful environment needed for true relaxation.",
   },
   {
     icon: "eco",
-    title: "Sustainability",
-    desc: "Solar-powered, rainwater-harvested, and zero single-use plastic. We built it right from the start.",
+    title: "Sustainable Practices",
+    desc: "We're committed to preserving the natural beauty that surrounds us. From rainwater harvesting to supporting local artisans, every choice we make honors our environment and community.",
   },
 ];
 
@@ -60,8 +60,8 @@ export default function AboutPage() {
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80"
-          alt="Chello Yaku Guest House misty mountains"
+          src="/images/IMG20260128083601.jpg"
+          alt="Chello Yaku Guest House building in Papumpare"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
         />
         <div
@@ -115,7 +115,7 @@ export default function AboutPage() {
         >
           <div>
             <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#50606f", marginBottom: 10 }}>
-              Est. 2019
+              Our Journey
             </p>
             <h2
               style={{
@@ -127,20 +127,20 @@ export default function AboutPage() {
                 marginBottom: 24,
               }}
             >
-              A labour of <em style={{ fontStyle: "italic" }}>love in the foothills.</em>
+              From vision to <em style={{ fontStyle: "italic" }}>reality.</em>
             </h2>
             <p style={{ fontSize: "1rem", color: "#434843", lineHeight: 1.8, marginBottom: 16, fontWeight: 300 }}>
-              Chello Yaku Guest House was born from a simple vision: to provide a warm, welcoming home for travelers visiting the beautiful Kimin region. Located in SANTI NAGAR, NEAR-(PETROL PUMP) PAPUMPARE, our guest house offers comfortable accommodations with genuine hospitality.
+              Chello Yaku Guest House began as a dream in 2019 - to create a sanctuary where travelers could experience the true essence of Himalayan hospitality. Located in the serene landscapes of Papumpare, we transformed this vision into a reality by combining traditional Arunachali warmth with modern comfort. Every corner of our guest house tells a story of dedication, love, and respect for both our guests and the natural beauty that surrounds us.
             </p>
             <p style={{ fontSize: "1rem", color: "#434843", lineHeight: 1.8, fontWeight: 300 }}>
-              We started with comfortable rooms designed to make every guest feel at home. Today, that vision continues to guide everything we do. Every aspect of Chello Yaku is managed with personal care, ensuring visitors experience the warmth and beauty of our region.
+              What started as a humble establishment has grown into a beloved retreat where guests return year after year. We've maintained our intimate scale because we believe hospitality should be personal, not commercial. Each stay with us is an invitation to experience the authentic rhythm of life in the Himalayas.
             </p>
           </div>
           <div style={{ borderRadius: "1rem", overflow: "hidden", aspectRatio: "4/3" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80"
-              alt="Chello Yaku Guest House building"
+              src="/images/IMG20260128084845.jpg"
+              alt="Chello Yaku Guest House building exterior"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </div>
@@ -151,7 +151,7 @@ export default function AboutPage() {
       <section className="section-pad" style={{ background: "#efeee3", padding: "80px 32px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#50606f", marginBottom: 10 }}>
-            What drives us
+            What defines <em style={{ fontStyle: "italic" }}>Chello Yaku</em>
           </p>
           <h2
             style={{
@@ -220,7 +220,7 @@ export default function AboutPage() {
       {/* ── TEAM ──────────────────────────────────────────────────────────── */}
       <section className="section-pad" style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 32px" }}>
         <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#50606f", marginBottom: 10 }}>
-          The people
+          Meet the <em style={{ fontStyle: "italic" }}>hearts behind Chello Yaku.</em>
         </p>
         <h2
           style={{

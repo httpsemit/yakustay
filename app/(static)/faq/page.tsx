@@ -8,7 +8,7 @@ const FAQS = [
     items: [
       {
         q: "How do I make a reservation?",
-        a: "You can book directly through our website by selecting your check-in and check-out dates on the homepage, choosing a room, and completing the secure Stripe checkout. Alternatively, call us on +91 94350 00000 or email reservations@grandhaven.in.",
+        a: "You can book directly through our website by selecting your check-in and check-out dates on the homepage, choosing a room, and completing the secure Stripe checkout. Alternatively, call us on +91 96782 67281 or email reservations@grandhaven.in.",
       },
       {
         q: "Is my booking instantly confirmed?",

@@ -5,6 +5,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MaintenanceStrip from "@/components/layout/MaintenanceStrip";
+import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 
 const notoSerif = Noto_Serif({
   subsets:   ["latin"],
@@ -59,6 +60,7 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
           <Footer />
+          <FloatingWhatsApp />
         </AuthProvider>
       </body>
     </html>

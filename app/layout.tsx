@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MaintenanceStrip from "@/components/layout/MaintenanceStrip";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
+import { Analytics } from "@vercel/analytics/next";
 
 const notoSerif = Noto_Serif({
   subsets:   ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({
           <Footer />
           <FloatingWhatsApp />
         </AuthProvider>
+        <Analytics />
       </body>
     </html>
   );

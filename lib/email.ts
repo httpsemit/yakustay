@@ -35,11 +35,10 @@ export async function sendBookingConfirmationEmail(
   `;
 
   try {
-    // 1. Send email to the Guest (and BCC Admin)
+    // 1. Send email to the Guest
     const guestData = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || "Chello Yaku Guest House <onboarding@resend.dev>",
       to: [toEmail],
-      bcc: [ownerEmail],
       subject: subject,
       html: htmlContent,
     });

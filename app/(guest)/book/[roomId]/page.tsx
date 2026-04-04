@@ -51,24 +51,21 @@ function BookingFormInner({ roomId }: { roomId: string }) {
     if (!user || profileLoaded) return;
     async function loadProfile() {
       try {
-        const { getClientDb } = await import("@/lib/firebase");
-        const db = await getClientDb();
-        const { doc, getDoc } = await import("firebase/firestore");
-        const snap = await getDoc(doc(db, "users", user!.uid));
+        if (!user) return;
+        const token = await user.getIdToken();
+        const response = await fetch("/api/auth/session", {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const userData = await response.json();
         
-        if (snap.exists()) {
-          const data = snap.data();
-          if (data.firstName || data.lastName) {
-            setName(`${data.firstName ?? ""} ${data.lastName ?? ""}`.trim());
-          } else if (user!.displayName) {
-            setName(user!.displayName);
-          }
-          if (data.email) setEmail(data.email);
-          else if (user!.email) setEmail(user!.email);
-        } else {
-          setName(user!.displayName ?? "");
-          setEmail(user!.email ?? "");
+        if (userData.firstName || userData.lastName) {
+          setName(`${userData.firstName ?? ""} ${userData.lastName ?? ""}`.trim());
+        } else if (user?.displayName) {
+          setName(user.displayName);
         }
+        if (userData.email) setEmail(userData.email);
+        else if (user?.email) setEmail(user.email);
+        
         setProfileLoaded(true);
       } catch (e) {
         console.error("Failed to load user profile", e);

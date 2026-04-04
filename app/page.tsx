@@ -1,8 +1,28 @@
+"use client";
+
 import Link from "next/link";
-import { getRooms, type Room } from "@/lib/firestore";
+import { useState, useEffect } from "react";
 import RoomCard from "@/components/rooms/RoomCard";
 import AvailabilityWidget from "@/components/home/AvailabilityWidget";
 import Testimonials from "@/components/home/Testimonials";
+import type { Room } from "@/lib/firestore";
+
+// Hero slider images
+const heroImages = [
+  "/images/IMG20260128083601.jpg",
+  "/images/IMG20260128083645.jpg",
+  "/images/IMG20260128083740.jpg",
+  "/images/IMG20260128083745.jpg",
+  "/images/IMG20260128083756.jpg",
+  "/images/IMG20260128083759.jpg",
+  "/images/IMG20260128084837.jpg",
+  "/images/IMG20260128084839.jpg",
+  "/images/IMG20260128084845.jpg",
+  "/images/IMG20260128084846.jpg",
+  "/images/pgate.jpg",
+  "/images/gate2.jpg",
+  "/images/roomgate1.jpg",
+];
 
 // Loyalty tier data
 const tiers = [
@@ -30,13 +50,34 @@ const tiers = [
   },
 ];
 
-export default async function Home() {
-  let rooms: Room[] = [];
-  try {
-    rooms = await getRooms();
-  } catch {
-    // Firestore not configured yet — use empty array
-  }
+export default function Home() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [rooms, setRooms] = useState<Room[]>([]);
+
+  // Auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Fetch rooms data
+  useEffect(() => {
+    const fetchRooms = async () => {
+      try {
+        const response = await fetch("/api/rooms");
+        const roomsData = await response.json();
+        setRooms(roomsData);
+      } catch (error) {
+        console.error("Error fetching rooms:", error);
+        setRooms([]);
+      }
+    };
+
+    fetchRooms();
+  }, []);
 
   return (
     <div style={{ background: "#fbfaee" }}>
@@ -52,19 +93,23 @@ export default async function Home() {
           overflow: "hidden",
         }}
       >
-        {/* Background image */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80"
-          alt="Chello Yaku Guest House mountain view"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
+        {/* Background image slider */}
+        {heroImages.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt="Chello Yaku Guest House mountain view"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              opacity: index === currentImageIndex ? 1 : 0,
+              transition: "opacity 1s ease-in-out",
+            }}
+          />
+        ))}
         {/* Gradient overlay */}
         <div
           style={{

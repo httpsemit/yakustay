@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { adminAuth } from "@/lib/firebase-admin";
+import { getUserById } from "@/lib/firestore";
 
 export const dynamic = "force-dynamic";
 
@@ -18,6 +19,31 @@ export async function POST(req: NextRequest) {
     });
     return res;
   } catch {
+    return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+  }
+}
+
+// GET /api/auth/session — get current user data
+export async function GET(req: NextRequest) {
+  try {
+    const authHeader = req.headers.get("Authorization");
+    if (!authHeader?.startsWith("Bearer ")) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    
+    const token = authHeader.split("Bearer ")[1];
+    const decoded = await adminAuth.verifyIdToken(token);
+    
+    // Fetch user data from Firestore
+    const userData = await getUserById(decoded.uid);
+    
+    if (!userData) {
+      return NextResponse.json({ error: "User not found" }, { status: 404 });
+    }
+    
+    return NextResponse.json(userData);
+  } catch (error) {
+    console.error("Error getting session:", error);
     return NextResponse.json({ error: "Invalid token" }, { status: 401 });
   }
 }

@@ -29,14 +29,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://yakustay.online'),
   title: {
-    template: "%s | Chello Yaku Guest House",
-    default:  "Chello Yaku Guest House | Mountain Retreat in Kimin",
+    template: "%s | Chello Yaku Guest House Kimin",
+    default:  "Guest House in Kimin & Budget Hotel near North Lakhimpur | Chello Yaku",
   },
-  description: "Experience warm hospitality at Chello Yaku Guest House, a comfortable retreat located in Kimin, Arunachal Pradesh. Book your stay today.",
-  keywords: ["guest house", "Kimin", "Arunachal Pradesh", "retreat", "comfortable stay", "mountain retreat"],
+  description: "Looking for an affordable stay in Assam? Chello Yaku Guest House in Kimin offers scenic mountain views, peaceful rooms, and easy access from North Lakhimpur Railway Station.",
+  keywords: ["budget hotel in North Lakhimpur", "guest house in Kimin", "Rajapukhuri guest house", "hotel near North Lakhimpur railway station", "affordable stay in Assam", "mountain retreat"],
   openGraph: {
     title: "Chello Yaku Guest House | Mountain Retreat",
-    description: "Experience warm hospitality at Chello Yaku Guest House, a comfortable retreat located in Kimin, Arunachal Pradesh.",
+    description: "Looking for an affordable stay in Assam? Chello Yaku Guest House in Kimin offers scenic mountain views, peaceful rooms, and easy access from North Lakhimpur Railway Station.",
     url: "/",
     siteName: "Chello Yaku Guest House",
     images: [{ url: "/images/hero-1.jpg", width: 1200, height: 630 }],

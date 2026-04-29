@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Loyalty Dashboard",
-  description: "View your loyalty tier, track your points balance, and redeem rewards at Grand Haven Hotel.",
+  description: "View your loyalty tier, track your points balance, and redeem rewards at Chello Yaku Hotel.",
 };
 
 export const dynamic = "force-dynamic";

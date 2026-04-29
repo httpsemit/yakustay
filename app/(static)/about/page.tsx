@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us — Chello Yaku Guest House",
+  title: "About Us | Affordable Stay in Assam",
   description:
-    "Learn the story behind Chello Yaku Guest House in Kimin — a welcoming retreat built on hospitality and the beauty of Arunachal Pradesh.",
+    "Learn about Chello Yaku Guest House, your tranquil mountain retreat in Kimin. Discover our heritage, local roots, and commitment to affordable hospitality in Assam.",
 };
 
 const TEAM = [

@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Refer a Friend",
-  description: "Share your unique referral link to earn loyalty points when friends book their stay at Grand Haven Hotel.",
+  description: "Share your unique referral link to earn loyalty points when friends book their stay at Chello Yaku Hotel.",
 };
 
 export const dynamic = "force-dynamic";
@@ -32,7 +32,7 @@ export default async function ReferralDashboardPage() {
   return (
     <div style={{ minHeight: "100vh", background: "#fbfaee", padding: "64px 32px" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
-        <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#50606f", marginBottom: 12 }}>Share Grand Haven</p>
+        <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#50606f", marginBottom: 12 }}>Share Chello Yaku</p>
         <h1 style={{ fontFamily: "'Noto Serif', serif", fontSize: "2.5rem", fontWeight: 300, color: "#061b0e", marginBottom: 48 }}>
           Refer a Friend
         </h1>

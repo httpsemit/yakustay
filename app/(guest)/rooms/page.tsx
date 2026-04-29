@@ -3,8 +3,8 @@ import Link         from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Rooms & Suites",
-  description: "Browse our comfortable rooms and suites at Chello Yaku Guest House. Find your perfect mountain retreat in Kimin.",
+  title: "Affordable Rooms & Suites | Guest House in Kimin",
+  description: "Browse budget-friendly rooms at Chello Yaku Guest House. Enjoy an affordable stay in Assam with modern amenities, just a short drive from North Lakhimpur.",
 };
 
 export const dynamic = "force-dynamic";
@@ -50,7 +50,7 @@ export default async function RoomsPage() {
             textTransform: "uppercase", color: "#50606f", marginBottom: 10,
           }}
         >
-          Grand Haven Hotel
+          Chello Yaku Hotel
         </p>
         <h1
           style={{

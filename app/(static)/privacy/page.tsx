@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Grand Haven Hotel",
-  description: "Understand how Grand Haven Hotel collects, uses, and protects your personal information.",
+  title: "Privacy Policy — Chello Yaku Hotel",
+  description: "Understand how Chello Yaku Hotel collects, uses, and protects your personal information.",
 };
 
 export default function PrivacyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
     >
       <h2>1. Introduction</h2>
       <p>
-        Grand Haven Hotel (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting your personal information and your right to privacy. This Privacy Policy explains what information we collect when you visit our website or make a booking, how we use it, and your rights in relation to it.
+        Chello Yaku Hotel (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting your personal information and your right to privacy. This Privacy Policy explains what information we collect when you visit our website or make a booking, how we use it, and your rights in relation to it.
       </p>
 
       <h2>2. Information We Collect</h2>
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
         <li>Data portability — receive your data in a structured, machine-readable format.</li>
       </ul>
       <p>
-        To exercise any of these rights, please email us at <a href="mailto:hello@grandhaven.in">hello@grandhaven.in</a>.
+        To exercise any of these rights, please email us at <a href="mailto:hello@yakustay.online">hello@yakustay.online</a>.
       </p>
 
       <h2>7. Cookies</h2>
@@ -82,7 +82,7 @@ export default function PrivacyPage() {
 
       <h2>10. Contact</h2>
       <p>
-        For privacy-related enquiries, please contact us at <a href="mailto:hello@grandhaven.in">hello@grandhaven.in</a>.
+        For privacy-related enquiries, please contact us at <a href="mailto:hello@yakustay.online">hello@yakustay.online</a>.
       </p>
     </LegalLayout>
   );

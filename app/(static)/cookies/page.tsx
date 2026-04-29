@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy — Grand Haven Hotel",
-  description: "Learn how Grand Haven Hotel uses cookies and tracking technologies on its website.",
+  title: "Cookie Policy — Chello Yaku Hotel",
+  description: "Learn how Chello Yaku Hotel uses cookies and tracking technologies on its website.",
 };
 
 export default function CookiesPage() {
@@ -19,7 +19,7 @@ export default function CookiesPage() {
       </p>
 
       <h2>2. How We Use Cookies</h2>
-      <p>Grand Haven Hotel uses cookies for the following purposes:</p>
+      <p>Chello Yaku Hotel uses cookies for the following purposes:</p>
 
       <h3>Essential Cookies</h3>
       <p>
@@ -84,7 +84,7 @@ export default function CookiesPage() {
 
       <h2>6. Contact</h2>
       <p>
-        If you have any questions about how we use cookies, please contact us at <a href="mailto:hello@grandhaven.in">hello@grandhaven.in</a>.
+        If you have any questions about how we use cookies, please contact us at <a href="mailto:hello@yakustay.online">hello@yakustay.online</a>.
       </p>
     </LegalLayout>
   );

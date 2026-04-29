@@ -70,7 +70,7 @@ export default function Footer() {
             />
           </Link>
           <p style={{ fontSize: "0.875rem", color: "#50606f", lineHeight: 1.6, marginBottom: 16 }}>
-            A boutique retreat on the<br />Assam-Arunachal border.
+            A boutique guest house in Kimin, serving as a peaceful budget hotel near North Lakhimpur railway station for your affordable stay in Assam.
           </p>
           <p style={{ fontSize: "0.875rem", color: "#50606f", lineHeight: 1.6 }}>
             <strong>Location:</strong><br />
@@ -94,10 +94,10 @@ export default function Footer() {
             Explore
           </p>
           {[
-            { href: "/rooms",   label: "Rooms"    },
-            { href: "/about",   label: "About"    },
-            { href: "/contact", label: "Contact"  },
-            { href: "/faq",     label: "FAQ"      },
+            { href: "/rooms", label: "Rooms" },
+            { href: "/about", label: "About" },
+            { href: "/contact", label: "Contact" },
+            { href: "/faq", label: "FAQ" },
           ].map(({ href, label }) => (
             <Link
               key={href}
@@ -129,10 +129,10 @@ export default function Footer() {
             Legal
           </p>
           {[
-            { href: "/terms",               label: "Terms & Conditions"  },
-            { href: "/privacy",             label: "Privacy Policy"      },
+            { href: "/terms", label: "Terms & Conditions" },
+            { href: "/privacy", label: "Privacy Policy" },
             { href: "/cancellation-policy", label: "Cancellation Policy" },
-            { href: "/cookies",             label: "Cookie Policy"       },
+            { href: "/cookies", label: "Cookie Policy" },
           ].map(({ href, label }) => (
             <Link
               key={href}

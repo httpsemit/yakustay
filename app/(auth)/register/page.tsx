@@ -94,7 +94,7 @@ function RegisterForm() {
             marginBottom: 8,
           }}
         >
-          Grand Haven Hotel
+          Chello Yaku Hotel
         </p>
 
         <h1

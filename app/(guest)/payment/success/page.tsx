@@ -58,7 +58,7 @@ function SuccessInner() {
       )}
 
       <p style={{ fontSize: "0.9375rem", fontWeight: 300, color: "#50606f", maxWidth: 440, lineHeight: 1.7, marginBottom: 40 }}>
-        A confirmation has been logged. We look forward to welcoming you to Grand Haven.
+        A confirmation has been logged. We look forward to welcoming you to Chello Yaku.
       </p>
 
       <div style={{ display: "flex", gap: 16, flexWrap: "wrap", justifyContent: "center" }}>

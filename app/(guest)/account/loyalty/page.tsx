@@ -55,7 +55,7 @@ export default async function LoyaltyPage() {
         </Link>
 
         <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#50606f", marginBottom: 8 }}>
-          Grand Haven
+          Chello Yaku
         </p>
         <h1 style={{ fontFamily: "'Noto Serif', serif", fontSize: "2.5rem", fontWeight: 300, color: "#061b0e", marginBottom: 40, lineHeight: 1.1 }}>
           Your Loyalty<br /><em style={{ fontStyle: "italic", opacity: 0.8 }}>Rewards.</em>

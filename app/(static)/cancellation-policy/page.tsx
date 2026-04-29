@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Cancellation Policy — Grand Haven Hotel",
-  description: "Understand Grand Haven Hotel's cancellation and refund policy before making a booking.",
+  title: "Cancellation Policy — Chello Yaku Hotel",
+  description: "Understand Chello Yaku Hotel's cancellation and refund policy before making a booking.",
 };
 
 const POLICY_TABLE = [
@@ -32,7 +32,7 @@ const POLICY_TABLE = [
     color: "#ffdad6",
   },
   {
-    scenario: "Cancellation by Grand Haven Hotel (any reason)",
+    scenario: "Cancellation by Chello Yaku Hotel (any reason)",
     refund: "100% refund",
     points: "Full compensation offered",
     color: "#d0e9d4",
@@ -92,7 +92,7 @@ export default function CancellationPolicyPage() {
       <h2>2. How to Cancel</h2>
       <p>To cancel a reservation, please log in to your account and visit <strong>My Bookings</strong>. Select the booking you wish to cancel and click &ldquo;Cancel Booking&rdquo;. Cancellations submitted through your account are processed immediately and automatically.</p>
       <p>
-        If you are unable to cancel through your account, please contact us directly at <a href="mailto:reservations@grandhaven.in">reservations@grandhaven.in</a> or call +91 96782 67281, citing your booking reference number.
+        If you are unable to cancel through your account, please contact us directly at <a href="mailto:reservations@yakustay.online">reservations@yakustay.online</a> or call +91 96782 67281, citing your booking reference number.
       </p>
 
       <h2>3. Refund Processing</h2>
@@ -128,7 +128,7 @@ export default function CancellationPolicyPage() {
 
       <h2>7. Contact</h2>
       <p>
-        For cancellation-related questions, please reach us at <a href="mailto:reservations@grandhaven.in">reservations@grandhaven.in</a> or visit our <a href="/contact">Contact page</a>.
+        For cancellation-related questions, please reach us at <a href="mailto:reservations@yakustay.online">reservations@yakustay.online</a> or visit our <a href="/contact">Contact page</a>.
       </p>
     </LegalLayout>
   );

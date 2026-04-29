@@ -58,7 +58,7 @@ export default function TermsPage() {
 
       <h2>9. Contact</h2>
       <p>
-        For any questions regarding these Terms, please contact us at <a href="mailto:hello@grandhaven.in">hello@grandhaven.in</a> or visit our <a href="/contact">Contact page</a>.
+        For any questions regarding these Terms, please contact us at <a href="mailto:hello@yakustay.online">hello@yakustay.online</a> or visit our <a href="/contact">Contact page</a>.
       </p>
     </LegalLayout>
   );

@@ -68,7 +68,7 @@ export default function ReferralPage() {
         </Link>
 
         <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#50606f", marginBottom: 8 }}>
-          Grand Haven
+          Chello Yaku
         </p>
         <h1 style={{ fontFamily: "'Noto Serif', serif", fontSize: "2.5rem", fontWeight: 300, color: "#061b0e", marginBottom: 12, lineHeight: 1.1 }}>
           Refer a Friend<br /><em style={{ fontStyle: "italic", opacity: 0.8 }}>& Earn.</em>
@@ -139,7 +139,7 @@ export default function ReferralPage() {
             {[
               { step: "1", text: "Share your unique code with friends & family" },
               { step: "2", text: "They register using your referral link" },
-              { step: "3", text: "They complete their first booking at Grand Haven" },
+              { step: "3", text: "They complete their first booking at Chello Yaku" },
               { step: "4", text: "You receive 500 loyalty points — automatically!" },
             ].map(({ step, text }) => (
               <div key={step} style={{ display: "flex", gap: 12, alignItems: "center" }}>

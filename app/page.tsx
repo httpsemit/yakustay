@@ -165,7 +165,7 @@ export default function Home() {
               letterSpacing: "-0.02em",
               lineHeight: 1.0,
               color: "#ffffff",
-              marginBottom: 32,
+              marginBottom: 16,
               maxWidth: 700,
             }}
           >
@@ -174,6 +174,9 @@ export default function Home() {
               meet Kimin&apos;s mist.
             </em>
           </h1>
+          <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.9)", maxWidth: 600, marginBottom: 32, fontWeight: 300, lineHeight: 1.5 }}>
+            Your premier <strong>guest house in Kimin</strong>. Experience an <strong>affordable stay in Assam</strong> just a short drive from the plains of North Lakhimpur.
+          </p>
 
           {/* Availability search widget (nightly + hourly) */}
           <AvailabilityWidget />
@@ -269,7 +272,7 @@ export default function Home() {
                 Landscape
               </p>
               <p style={{ fontFamily: "'Noto Serif', serif", fontSize: "1.5rem", fontWeight: 300, color: "#ffffff", lineHeight: 1.3 }}>
-                Panoramic mountain views from every room
+                Panoramic mountain views from every room, making us the top choice for a budget hotel in North Lakhimpur and Kimin area.
               </p>
             </div>
           </div>
@@ -415,7 +418,7 @@ export default function Home() {
               {
                 icon: "forest",
                 title: "Immersive Nature",
-                desc: "Wake up to misty mountains and lush valleys, far removed from the clamour of the city.",
+                desc: "Wake up to misty mountains and lush valleys, far removed from the city clamour. The perfect affordable stay in Assam.",
               },
               {
                 icon: "restaurant",
@@ -425,7 +428,7 @@ export default function Home() {
               {
                 icon: "self_improvement",
                 title: "Absolute Serenity",
-                desc: "A designated quiet zone designed to help you disconnect, reflect, and find your inner peace.",
+                desc: "A designated quiet zone designed to help you disconnect. Conveniently located as a hotel near North Lakhimpur railway station for easy travel.",
               },
               {
                 icon: "room_service",

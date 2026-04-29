@@ -2,10 +2,31 @@ import { getRoomById, getBookedDates, MOCK_ROOMS, type Room } from "@/lib/firest
 import { notFound } from "next/navigation";
 import AmenityChip from "@/components/rooms/AmenityChip";
 import RoomBookingPanel from "./RoomBookingPanel";
+import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 
 interface Props { params: Promise<{ id: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  let room = null;
+  try {
+    room = await getRoomById(id);
+  } catch {}
+  if (!room) {
+    room = MOCK_ROOMS.find((r) => r.id === id) || null;
+  }
+  if (!room) return { title: "Room Not Found" };
+
+  return {
+    title: { absolute: `${room.name} | Chello Yaku Guest House Kimin` },
+    description: room.description.substring(0, 160),
+    openGraph: {
+      images: [room.primaryImage],
+    },
+  };
+}
 
 export default async function RoomDetailPage({ params }: Props) {
   let room = null;
@@ -28,6 +49,27 @@ export default async function RoomDetailPage({ params }: Props) {
 
   return (
     <div style={{ background: "#fbfaee", minHeight: "100vh" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HotelRoom",
+            name: room.name,
+            description: room.description,
+            image: room.primaryImage,
+            occupancy: {
+              "@type": "QuantitativeValue",
+              value: room.capacity
+            },
+            offers: {
+              "@type": "Offer",
+              price: room.pricePerNight,
+              priceCurrency: "INR"
+            }
+          })
+        }}
+      />
       <style>{`
         .room-detail-grid {
           display: grid;

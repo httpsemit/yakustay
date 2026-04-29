@@ -1,5 +1,5 @@
 import { getRooms, MOCK_ROOMS, type Room } from "@/lib/firestore";
-import Link         from "next/link";
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

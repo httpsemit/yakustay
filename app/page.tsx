@@ -81,6 +81,28 @@ export default function Home() {
 
   return (
     <div style={{ background: "#fbfaee" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LodgingBusiness",
+            name: "Chello Yaku Guest House",
+            description: "Affordable stay in Assam. Chello Yaku Guest House in Kimin offers scenic mountain views, peaceful rooms, and easy access from North Lakhimpur Railway Station.",
+            image: "https://yakustay.online/images/IMG20260128083601.jpg",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Rajapukhuri",
+              addressLocality: "Kimin",
+              addressRegion: "Arunachal Pradesh",
+              postalCode: "791121",
+              addressCountry: "IN"
+            },
+            telephone: "+91-96782-67281",
+            priceRange: "₹999 - ₹2500"
+          })
+        }}
+      />
 
       {/* ── HERO ─────────────────────────────────────────────────────── */}
       <section
@@ -263,8 +285,8 @@ export default function Home() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
-              alt=""
+              src="/images/IMG20260128084845.jpg"
+              alt="Chello Yaku guest house exterior"
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.35 }}
             />
             <div style={{ position: "relative", zIndex: 1 }}>

@@ -5,7 +5,7 @@ import "../styles/print.css";
 import { AuthProvider } from "@/contexts/AuthContext";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import MaintenanceStrip from "@/components/layout/MaintenanceStrip";
+
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -77,7 +77,6 @@ export default function RootLayout({
       </head>
       <body className="bg-surface text-on-surface antialiased font-body">
         <AuthProvider>
-          <MaintenanceStrip />
           <Header />
           <main>{children}</main>
           <Footer />

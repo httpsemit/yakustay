@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Cancellation Policy — Chello Yaku Hotel",
+  title: "Cancellation Policy",
   description: "Understand Chello Yaku Hotel's cancellation and refund policy before making a booking.",
 };
 

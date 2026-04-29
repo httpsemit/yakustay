@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Chello Yaku Hotel",
+  title: "Privacy Policy",
   description: "Understand how Chello Yaku Hotel collects, uses, and protects your personal information.",
 };
 

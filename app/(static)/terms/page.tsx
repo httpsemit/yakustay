@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/layout/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions — Chello Yaku Guest House",
+  title: "Terms & Conditions",
   description: "Read the terms and conditions governing your use of the Chello Yaku Guest House website and booking services.",
 };
 

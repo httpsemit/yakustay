@@ -10,33 +10,33 @@ import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
 import { Analytics } from "@vercel/analytics/next";
 
 const notoSerif = Noto_Serif({
-  subsets:   ["latin"],
-  weight:    ["300", "400", "700"],
-  style:     ["normal", "italic"],
-  variable:  "--font-serif",
-  display:   "swap",
-  preload:   true,
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+  preload: true,
 });
 
 const inter = Inter({
-  subsets:  ["latin"],
-  weight:   ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
-  display:  "swap",
-  preload:   true,
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://yakustay.online'),
   title: {
-    template: "%s | Chello Yaku Guest House Kimin",
-    default:  "Guest House in Kimin & Budget Hotel near North Lakhimpur | Chello Yaku",
+    template: "%s | Chello Yaku Guest House",
+    default: "Chello Yaku Guest House | Mountain Retreat in Kimin",
   },
-  description: "Looking for an affordable stay in Assam? Chello Yaku Guest House in Kimin offers scenic mountain views, peaceful rooms, and easy access from North Lakhimpur Railway Station.",
-  keywords: ["budget hotel in North Lakhimpur", "guest house in Kimin", "Rajapukhuri guest house", "hotel near North Lakhimpur railway station", "affordable stay in Assam", "mountain retreat"],
+  description: "Experience warm hospitality at Chello Yaku Guest House, a comfortable retreat located in Kimin, Arunachal Pradesh. Book your stay today.",
+  keywords: ["guest house", "Kimin", "Arunachal Pradesh", "retreat", "comfortable stay", "mountain retreat"],
   openGraph: {
     title: "Chello Yaku Guest House | Mountain Retreat",
-    description: "Looking for an affordable stay in Assam? Chello Yaku Guest House in Kimin offers scenic mountain views, peaceful rooms, and easy access from North Lakhimpur Railway Station.",
+    description: "Experience warm hospitality at Chello Yaku Guest House, a comfortable retreat located in Kimin, Arunachal Pradesh.",
     url: "/",
     siteName: "Chello Yaku Guest House",
     images: [{ url: "/images/hero-1.jpg", width: 1200, height: 630 }],
@@ -63,11 +63,11 @@ export default function RootLayout({
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+
         {/* DNS prefetch for third-party domains */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://vercel.live" />
-        
+
         {/* Material Symbols — icon font, not a page font, safe in <head> */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link

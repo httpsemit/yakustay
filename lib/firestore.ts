@@ -7,6 +7,7 @@ import { Timestamp } from "firebase-admin/firestore";
 export interface Room {
   id:            string;
   name:          string;
+  roomTypeId:    string;   // Grouping key — e.g. "deluxe", "standard"
   description:   string;
   pricePerNight: number;
   capacity:      number;
@@ -93,6 +94,7 @@ export const MOCK_ROOMS: Room[] = [
   {
     id: "mock-1",
     name: "The Haven Suite",
+    roomTypeId: "haven-suite",
     description: "Our signature suite featuring panoramic forest views, a private soaking tub, and understated luxury that invites complete relaxation. Every detail is crafted for your peace.",
     pricePerNight: 12500,
     capacity: 2,
@@ -105,6 +107,7 @@ export const MOCK_ROOMS: Room[] = [
   {
     id: "mock-2",
     name: "The Courtyard Room",
+    roomTypeId: "courtyard-room",
     description: "A tranquil space opening directly onto our stone courtyard. Features natural textures, raw silk accents, and morning sunlight to start your day beautifully.",
     pricePerNight: 8500,
     capacity: 2,
@@ -117,6 +120,7 @@ export const MOCK_ROOMS: Room[] = [
   {
     id: "mock-3",
     name: "The Grove Loft",
+    roomTypeId: "grove-loft",
     description: "An elevated space nestled among the trees. The Grove Loft offers a secluded balcony and a spacious, airy interior for those seeking perspective.",
     pricePerNight: 15000,
     capacity: 3,
@@ -129,6 +133,7 @@ export const MOCK_ROOMS: Room[] = [
   {
     id: "mock-4",
     name: "The Family Retreat",
+    roomTypeId: "family-retreat",
     description: "Spacious and adaptable, designed for families or small groups seeking comfort without compromising on elegance and style.",
     pricePerNight: 18000,
     capacity: 4,
@@ -141,6 +146,7 @@ export const MOCK_ROOMS: Room[] = [
   {
     id: "mock-5",
     name: "The Solstice Room",
+    roomTypeId: "solstice-room",
     description: "Intimate and deeply comforting, designed with dark wood finishes and soft ambient lighting for the perfect restorative stay away from the noise.",
     pricePerNight: 7500,
     capacity: 2,
@@ -161,6 +167,20 @@ export async function getRooms(): Promise<Room[]> {
   if (snap.empty) return MOCK_ROOMS;
   const rooms = snap.docs.map((d) => ({ id: d.id, ...d.data() } as Room));
   return rooms.sort((a, b) => a.pricePerNight - b.pricePerNight);
+}
+
+/** Fetch all rooms belonging to a specific roomTypeId */
+export async function getRoomsByTypeId(roomTypeId: string): Promise<Room[]> {
+  const snap = await adminDb
+    .collection("rooms")
+    .where("roomTypeId", "==", roomTypeId)
+    .where("isAvailable", "==", true)
+    .get();
+
+  if (snap.empty) {
+    return MOCK_ROOMS.filter((r) => r.roomTypeId === roomTypeId);
+  }
+  return snap.docs.map((d) => ({ id: d.id, ...d.data() } as Room));
 }
 
 export async function getAllRooms(): Promise<Room[]> {
@@ -363,6 +383,132 @@ export async function createBooking(input: CreateBookingInput): Promise<string> 
   });
 
   return bookingRef.id;
+}
+
+// ── Multi-room booking (Option A: one booking doc per room) ───────────────
+
+export interface CreateMultipleBookingsInput {
+  roomTypeId:  string;
+  quantity:    number;
+  guestId:     string;
+  guestName:   string;
+  guestEmail:  string;
+  guestPhone:  string;
+  checkIn:     string;
+  checkOut:    string;
+  nights:      number;
+  pricePerNight: number;
+  notes?:      string;
+  bookingGroupId: string; // ties all rooms in this booking together (use Stripe session or uuid)
+}
+
+/**
+ * Atomically finds N available rooms of the given type and creates one
+ * Booking document per room under the same bookingGroupId.
+ * Throws if fewer than `quantity` rooms are free for the requested dates.
+ */
+export async function createMultipleBookings(
+  input: CreateMultipleBookingsInput
+): Promise<string[]> {
+  const { roomTypeId, quantity, checkIn, checkOut, bookingGroupId } = input;
+
+  // ── 1. Fetch all rooms of that type ───────────────────────────────────
+  const typeSnap = await adminDb
+    .collection("rooms")
+    .where("roomTypeId", "==", roomTypeId)
+    .where("isAvailable", "==", true)
+    .get();
+
+  const candidates: Room[] = typeSnap.empty
+    ? MOCK_ROOMS.filter((r) => r.roomTypeId === roomTypeId)
+    : typeSnap.docs.map((d) => ({ id: d.id, ...d.data() } as Room));
+
+  const newInterval = {
+    start: parseISO(checkIn),
+    end:   parseISO(checkOut),
+  };
+
+  // ── 2. Filter to rooms that have no overlapping confirmed/pending bookings
+  const availableRooms: Room[] = [];
+  for (const candidate of candidates) {
+    const existingSnap = await adminDb
+      .collection("bookings")
+      .where("roomId", "==", candidate.id)
+      .where("status", "in", ["pending", "confirmed"])
+      .get();
+
+    const hasConflict = existingSnap.docs.some((doc) => {
+      const b = doc.data() as Booking;
+      return areIntervalsOverlapping(
+        newInterval,
+        { start: parseISO(b.checkIn), end: parseISO(b.checkOut) },
+        { inclusive: false }
+      );
+    });
+
+    if (!hasConflict) availableRooms.push(candidate);
+    if (availableRooms.length === quantity) break; // got enough, stop early
+  }
+
+  if (availableRooms.length < quantity) {
+    throw new Error(`INSUFFICIENT_AVAILABILITY: only ${availableRooms.length} room(s) available`);
+  }
+
+  const selectedRooms = availableRooms.slice(0, quantity);
+
+  // ── 3. Atomically write all booking documents ─────────────────────────
+  const bookingIds: string[] = [];
+  const now = new Date().toISOString();
+  const totalPricePerRoom = input.pricePerNight * input.nights;
+
+  await adminDb.runTransaction(async (tx) => {
+    for (const room of selectedRooms) {
+      // Re-check inside transaction to prevent race conditions
+      const conflictSnap = await tx.get(
+        adminDb
+          .collection("bookings")
+          .where("roomId", "==", room.id)
+          .where("status", "in", ["pending", "confirmed"])
+      );
+
+      for (const doc of conflictSnap.docs) {
+        const b = doc.data() as Booking;
+        if (areIntervalsOverlapping(
+          newInterval,
+          { start: parseISO(b.checkIn), end: parseISO(b.checkOut) },
+          { inclusive: false }
+        )) {
+          throw new Error("RACE_CONDITION: room became unavailable during transaction");
+        }
+      }
+
+      const bookingRef = adminDb.collection("bookings").doc();
+      bookingIds.push(bookingRef.id);
+      tx.set(bookingRef, {
+        roomId:          room.id,
+        roomTypeId:      roomTypeId,
+        bookingGroupId,
+        guestId:         input.guestId,
+        guestName:       input.guestName,
+        guestEmail:      input.guestEmail,
+        guestPhone:      input.guestPhone,
+        checkIn,
+        checkOut,
+        nights:          input.nights,
+        totalPrice:      totalPricePerRoom,
+        pointsEarned:    0,
+        pointsRedeemed:  0,
+        status:          "pending",
+        paymentMethod:   "",
+        stripeSessionId: "",
+        notes:           input.notes ?? "",
+        createdAt:       now,
+        updatedAt:       now,
+      });
+    }
+  });
+
+  return bookingIds;
 }
 
 // ── Webhook Fulfillments (Loyalty & Referrals) ─────────────────────────────

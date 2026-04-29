@@ -6,6 +6,7 @@ import RoomCard from "@/components/rooms/RoomCard";
 import AvailabilityWidget from "@/components/home/AvailabilityWidget";
 import Testimonials from "@/components/home/Testimonials";
 import type { Room } from "@/lib/firestore";
+import { groupRoomsByTypeId, type RoomGroup } from "@/lib/roomUtils";
 
 // Hero slider images
 const heroImages = [
@@ -53,6 +54,7 @@ const tiers = [
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [rooms, setRooms] = useState<Room[]>([]);
+  const [roomGroups, setRoomGroups] = useState<RoomGroup[]>([]);
 
   // Auto-slide effect
   useEffect(() => {
@@ -70,9 +72,11 @@ export default function Home() {
         const response = await fetch("/api/rooms");
         const roomsData = await response.json();
         setRooms(roomsData);
+        setRoomGroups(groupRoomsByTypeId(roomsData));
       } catch (error) {
         console.error("Error fetching rooms:", error);
         setRooms([]);
+        setRoomGroups([]);
       }
     };
 
@@ -313,7 +317,7 @@ export default function Home() {
       </section>
 
       {/* ── HERITAGE SCROLLER ─────────────────────────────────────── */}
-      {rooms.length > 0 && (
+      {roomGroups.length > 0 && (
         <section style={{ paddingBottom: 80 }}>
           <div
             style={{
@@ -345,7 +349,7 @@ export default function Home() {
               paddingBottom: 8,
             }}
           >
-            {rooms.map((room) => <RoomCard key={room.id} room={room} />)}
+            {roomGroups.map((group) => <RoomCard key={group.roomTypeId} group={group} />)}
           </div>
         </section>
       )}
